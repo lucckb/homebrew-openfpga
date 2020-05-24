@@ -5,6 +5,7 @@ class Nextpnr < Formula
   version "20200524"
   sha256 "276fef420ec921d8d966f180d8825f73cae056e02d1553181f0fe532ef1bb8dd"
   head "https://github.com/YosysHQ/nextpnr.git"
+  patch :DATA
 
   option "without-gui", "No GUI"
   option "without-python", "No python scripting support"
@@ -52,3 +53,16 @@ class Nextpnr < Formula
     system "#{bin}/nextpnr-ice40", "--help" if build.with? "arch-ice40"
   end
 end
+__END__
+diff --git a/3rdparty/QtPropertyBrowser/src/qteditorfactory.cpp b/3rdparty/QtPropertyBrowser/src/qteditorfactory.cpp
+index 7cd130f..4920f47 100644
+--- a/3rdparty/QtPropertyBrowser/src/qteditorfactory.cpp
++++ b/3rdparty/QtPropertyBrowser/src/qteditorfactory.cpp
+@@ -2205,7 +2205,6 @@ void QtColorEditWidget::setValue(const QColor &c)
+ 
+ void QtColorEditWidget::buttonClicked()
+ {
+-    bool ok = false;
+     QRgb oldRgba = m_color.rgba();
+     QColor newRgba = QColorDialog::getColor(oldRgba, this).rgba();
+     if (newRgba.isValid() && newRgba.rgba() != oldRgba) {
