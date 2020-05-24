@@ -8,6 +8,7 @@ class Icestorm < Formula
   patch :DATA
 
   depends_on "pkg-config" => :build
+  depends_on "gnu-sed" => :build
   depends_on "libftdi0"
   depends_on "python"
 
