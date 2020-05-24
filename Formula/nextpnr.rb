@@ -23,7 +23,7 @@ class Nextpnr < Formula
   depends_on "icestorm" if build.with? "arch-ice40"
   depends_on "prjtrellis" if build.with? "arch-ecp5"
   depends_on "qt" if build.with? "gui"
-  depends_on "python" if build.with? "python"
+  depends_on "python@3.8" if build.with? "python"
 
   def install
     args = []
