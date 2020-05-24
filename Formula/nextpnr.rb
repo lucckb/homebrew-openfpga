@@ -40,6 +40,7 @@ class Nextpnr < Formula
     stable_version = @stable.version.to_s+" ("+stable_version_commit+")"
     args << "-DCURRENT_GIT_VERSION="+stable_version unless build.head?
     args << "-DCURRENT_GIT_VERSION="+head.version.commit if build.head?
+    args << "-DICEBOX_ROOT=/usr/local/share/icebox"
 
     system "cmake", *args, ".", "-GNinja", *std_cmake_args
     system "ninja"
