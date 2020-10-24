@@ -1,7 +1,7 @@
 class Prjtrellis < Formula
   desc "Device database and tools for bitstream creation for ECP5 FPGAs"
   homepage "https://github.com/SymbiFlow/prjtrellis"
-  version "20200102"
+  version "20200104"
   url "https://github.com/SymbiFlow/prjtrellis/archive/d8c5e9d10836150ebf304f10803eb6707157b095.tar.gz"
   sha256 "47945ca9026ed0eea2438d1304d89f63c514f54cfd9107a690d20de5d05e35a6"
   head "https://github.com/SymbiFlow/prjtrellis.git"
@@ -30,6 +30,7 @@ class Prjtrellis < Formula
     args << "-DSTATIC_BUILD=ON" if build.with? "static"
 
     args << "-DBoost_NO_BOOST_CMAKE=ON"
+    args << "Boost_PYTHON_FOUND=TRUE"
 
     stable_version_commit = @stable.url[/([a-f0-9]{8})[a-f0-9]{32}\.tar\.gz/,1]
     stable_version = @stable.version.to_s+" ("+stable_version_commit+")"
