@@ -30,6 +30,7 @@ class Nextpnr < Formula
     args << "-DBUILD_GUI=OFF" if build.without? "gui"
     args << "-DBUILD_PYTHON=OFF" if build.without? "python"
     args << "-DSTATIC_BUILD=ON" if build.with? "static"
+    args << "Boost_PYTHON_FOUND=TRUE"
 
     archs = []
     archs << "ice40" if build.with? "arch-ice40"
