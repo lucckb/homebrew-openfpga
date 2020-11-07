@@ -3,7 +3,7 @@ class Nextpnr < Formula
   homepage "https://github.com/YosysHQ/nextpnr"
   url "https://github.com/YosysHQ/nextpnr/archive/76ffdbbbdedcaa0c07af3b5f8abe881f4722605f.tar.gz"
   version "20201107"
-  sha256 "276fef420ec921d8d966f180d8825f73cae056e02d1553181f0fe532ef1bb8dd"
+  sha256 "e3344a9a933b426bc14cad31d7b24bcf33db046c19c6b332d2b938583df26dc6"
   head "https://github.com/YosysHQ/nextpnr.git"
   patch :DATA
 
