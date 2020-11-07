@@ -23,7 +23,7 @@ class Nextpnr < Formula
   depends_on "icestorm" if build.with? "arch-ice40"
   depends_on "prjtrellis" if build.with? "arch-ecp5"
   depends_on "qt" if build.with? "gui"
-  depends_on "python@3.8" if build.with? "python"
+  depends_on "python@3.9" if build.with? "python"
 
   def install
     args = []
@@ -43,6 +43,8 @@ class Nextpnr < Formula
     args << "-DCURRENT_GIT_VERSION="+stable_version unless build.head?
     args << "-DCURRENT_GIT_VERSION="+head.version.commit if build.head?
     args << "-DICEBOX_ROOT=/usr/local/share/icebox"
+    args << "-DPYTHON_INCLUDE_DIR=/usr/local/Cellar/python@3.9/3.9.0_1/Frameworks/Python.framework/Versions/3.9/include/python3.9"
+
 
     system "cmake", *args, ".", "-GNinja", *std_cmake_args
     system "ninja"
